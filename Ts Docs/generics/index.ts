@@ -42,3 +42,24 @@ let y: string[] = []
 x = y
 // @ts-expect-error
 y = x
+
+// GENERICS CHAPHTER TWO
+function identity<Type>(arg: Type): Type {
+  return arg
+}
+
+function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
+  console.log(arg.length) // Array has a .length, so no more error
+  return arg
+}
+function loggingIdentity2<Type>(arg: Type[]): Type[] {
+  console.log(arg.length)
+  return arg
+}
+
+try {
+} catch (err: unknown) {
+  if (err instanceof Error) {
+    console.log(err.message)
+  }
+}
